@@ -1,16 +1,31 @@
-# This is a sample Python script.
+def binary_search(arr, target):
+    """
+    This function takes in a sorted array and a target value. It returns the index of the
+    target value if it is present in the array.
+    Otherwise, it returns None.
+    :param arr:
+    :param target:
+    :return:
+    """
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+    # low and high keep track of which part of the list you'll search in
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2 # median
+        guess = arr[mid]
+
+        if guess == target:
+            return mid
+        elif guess > target:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return None
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
+print(binary_search([1, 2, 3, 4, 5, 6], 3))
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
